@@ -1,0 +1,19 @@
+1. Run Broadband_AI_support with niter=50, whiten=1, no support, restart=0, error_metric = "ls", do_matched_filter = 0, companion_spectrum = 0, positivity = 2.
+
+2. Run Broadband_AI_support with niter=150, whiten ‎ = 2, no support, restart =1 (restart drectory is that of run #1 ), error_metric = "ls", do_matched_filter =0 , companion_spectrum = 0, positivity = 2.
+
+3. Run Broadband_AI_support with niter=0, whiten=2, with object support, restart = 1, (restart drectory is that of run #1 ), do_matched_filter =1, error_metric = "ls", companion_spectrum = 0, positivity = 2.
+
+4. Run detect_sources.py < output directory from run #2>  —center 255.5 251
+
+5. In the output directory for run #2 perform  listpix estimate[270:270,257:257,*] > delta_estimate.txt and  listpix object[270:270,257:257,*] > delta_true.txt
+
+6. Run Broadband_AI_support with niter=20, whiten ‎ = 2, with object support, restart =1 (restart drectory is that of run #2 ), do_matched_filter = 0 , companion_spectrum = 0, positivity = 2, error_metric = "mrl", mrl_R = 25, mrl_nmc = 32, mrl_tmax = 10, mrl_psf_radius = 50. 
+
+7. Run detect_sources.py < output directory from run #6>  —center 255.5 251
+
+8. Run Broadband_AI_support with niter=0, whiten=2, with object support, restart = 1, (restart drectory is that of run #6 ), do_matched_filter =0, error_metric = "ls", companion_spectrum = 1, companion_ap_rad = 160, positivity = 2.
+
+9. Run plot_companion_spectrum.py - copy delta_estimate.text, delta_true.tex, companion_spectrum_covariance.txt and companion_spectrum.txt into same directory as code
+ 
+
