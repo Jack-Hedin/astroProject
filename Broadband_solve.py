@@ -238,7 +238,7 @@ cs_use_truth      = 0
 """
 
 add_noise = 1
-target_mag = 1.0        # apparent magnitude of the target
+target_mag = 6.0        # apparent magnitude of the target, was at 1.0
 mag_band = "V"           # radiometry band: Johnson B,V,R,I or Sloan u,g,r,i,z
 mag_system = "johnson"   # "johnson" (Vega) or "sloan" (AB)
 t_exp_s = 5.0e-3         # exposure time per frame [s]
