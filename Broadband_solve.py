@@ -33,6 +33,8 @@ ap.add_argument('--estimate_path', default='default') #380
 ap.add_argument('--mf_path', default='') #140
 ap.add_argument('--output', default='default')
 ap.add_argument('--support', type=int, default=0)
+ap.add_argument('--nframe', type=int, default=150) #116
+ap.add_argument('--seed', type=int, default=None) #362
 a = ap.parse_args()
 
 # --- Run log: tee all stdout to a timestamped log file ---
@@ -112,7 +114,7 @@ print(f'pixel scale = {pixscale:.5f} arcsec  '
 # Simulation parameters
 incr = 8
 r0_500 = 17
-nim = 100
+nim = a.nframe
 nderiv = 0
 display = 0
 niter = a.niter
@@ -224,7 +226,7 @@ companion_spectrum = a.companion
 companion_ds9_x   = 270      
 companion_ds9_y   = 257      
 companion_sat_excl_frac = 0.0
-companion_ap_rad  = 160       
+companion_ap_rad  = 87 #was 160
 cs_nuisance       = 'const'  
 cs_use_truth      = 0        
 
@@ -356,7 +358,8 @@ mrl_psf_radius = 50      # analysis mask dilation radius in pixels (0 = full fra
                          # pixels enter the ACF sums. Support is dilated by this radius.
 
 # Random seed parameter (set to None for non-reproducible results)
-random_seed = 41  # Change this for different random realizations
+
+random_seed = a.seed  # Change this for different random realizations
 if random_seed is not None:
     np.random.seed(random_seed)
     print(f"Random seed set to: {random_seed} for reproducible results")
