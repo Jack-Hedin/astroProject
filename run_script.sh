@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 set -e
 
 # Always run from the script's directory so relative paths and inputs resolve
@@ -111,18 +111,18 @@ echo "Detecting sources..."
 python3 detect_sources_new.py "$DIR_LS150_MF" --center 255.5 251
 
 echo "Extracting pixel spectrum with IRAF CL..."
-(cd "$RUN_DIR" && cl < "$SCRIPT_DIR/pix.cl")
+#(cd "$RUN_DIR" && cl < "$SCRIPT_DIR/pix.cl")
 
 echo "[4/4] Running Broadband_solve stage 4 companion (ls_c)..."
 python3 Broadband_solve.py --nframe "$NFRAMES" --seed "$SEED" --niter 0 --whiten 2 --restart 1 --output "$DIR_LS_C" --estimate_path "$DIR_LS150/estimate.fits" --companion 1 --support 1
 
 # Copy outputs into RUN_DIR
-cp "$DIR_LS_C"/companion_spectrum* "$RUN_DIR"/
-cp "$DIR_LS150"/delta_* "$RUN_DIR"/
+#cp "$DIR_LS_C"/companion_spectrum* "$RUN_DIR"/
+#cp "$DIR_LS150"/delta_* "$RUN_DIR"/
 
 # Generate comparison plots inside RUN_DIR
-(cd "$RUN_DIR" && python3 "$SCRIPT_DIR/plot_companion_spectrum.py")
+#(cd "$RUN_DIR" && python3 "$SCRIPT_DIR/plot_companion_spectrum.py")
 
 echo "=========================================================="
-echo "Run complete! All outputs saved in: $RUN_DIR"
+echo "Run complete! All outputs saved in ${RUN_DIR}"
 echo "=========================================================="

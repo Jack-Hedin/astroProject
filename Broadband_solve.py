@@ -125,7 +125,7 @@ fitsout = 1
 # --- Support mask (optional, restart only) ------------------------------------
 #'/Users/jackr/OneDrive/Documents/Desktop/Hedin/support.fits'
 support_mask_file = ''
-if a.support: support_mask_file = '/Users/jackhedin/Projects/Astro/Code/support.fits'
+if a.support: support_mask_file = 'support.fits'
     # e.g. '/Users/.../satellite_mask.fits'
 multiwavelength_object_filename = "multi_wavelength_object.fits" #"multi_wavelength_object.fits"  # Path to pre-generated object
 """

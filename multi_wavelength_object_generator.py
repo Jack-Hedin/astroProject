@@ -26,7 +26,7 @@ lamb2 = 1000.0  # max wavelength [nm]
 incr = 8
 obj_type = 1  # 0 = binary star, else satellite object
 CSO_scale = 0.1 #was at .05
-display = 1  # Set to 1 to plot generated objects
+display = 0  # Set to 1 to plot generated objects
 template_filename = "template.fits"  # Path and filename for satellite template FITS file
 
 # Absorption band parameters for solar panel with absorption lines (material 7)
